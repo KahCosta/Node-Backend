@@ -18,8 +18,10 @@ const app = express();
 //Request: Guarda todos os dados que vem por meio da requisição
 //Response: Responsável por retornar uma resposta para o usuário
 
-app.get('/users', (request, response) => {
-    const params = request.query;
+app.get('/users/:id', (request, response) => {
+    const params = request.params;
+
+//rota no insominia: http://localhost:3333/users/1
 
     console.log(params);
 
