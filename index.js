@@ -6,7 +6,7 @@ const app = express();
 
 // Tipos de Parametros
 
-// Query: Parametros nomeados na rota apos '?', serve para filtros e paginação
+// Query: Parametros nomeados na rota apos '?', serve para filtros e paginação (para usar mais de um filtro usa o &)
 // Route: Parametros utilizados para identificar recursos , :ID(quando quero buscar um usuário específico)
 // Request Body: Corpo da requisição utilizado para criar ou alterar recursos
 
@@ -18,7 +18,11 @@ const app = express();
 //Request: Guarda todos os dados que vem por meio da requisição
 //Response: Responsável por retornar uma resposta para o usuário
 
-app.get('/', (request, response) => {
+app.get('/users', (request, response) => {
+    const params = request.query;
+
+    console.log(params);
+
     //Retornando resposta em formato json
     return response.json({
         Aluna: 'Kamilla Costa',
